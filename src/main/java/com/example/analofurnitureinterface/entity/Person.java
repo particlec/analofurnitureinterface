@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @Entity
@@ -23,6 +24,9 @@ public class Person implements Serializable {
 
     @Column(name = "address", nullable = false)
     private String address;
+
+    @Column(name = "createTime", nullable = false)
+    private Date createTime;
 
     public Long getId() {
         return id;
@@ -55,6 +59,16 @@ public class Person implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
+
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
 
     @Override
     public String toString() {

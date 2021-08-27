@@ -6,6 +6,7 @@ import com.example.analofurnitureinterface.entity.Person;
 import com.example.analofurnitureinterface.pojo.PersonVO;
 import com.example.analofurnitureinterface.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,10 +27,14 @@ public class PersonController {
         return "Hello!";
     }
 
-    @RequestMapping("/create")
-    public void createFieldDataTable(PersonVO personVO) {
-        personService.createPerson(personVO);
+//    @RequestMapping("/create")
+//    public void createFieldDataTable() {
+//        personService.createPerson();
+//    }
 
+    @RequestMapping("/query")
+    public Page<PersonVO> queryPerson() {
+      return   personService.queryPerson();
     }
 
 
